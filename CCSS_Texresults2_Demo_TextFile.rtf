@@ -1,0 +1,73 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \\documentclass\{article\}\
+\\usepackage\{geometry\} %Helpful with margins\
+\\usepackage\{booktabs\} %Helpful with table formatting\
+\\geometry\{left=1in, right=1in, top=1in, bottom=1in\} %set all one inch margins \
+\
+\\begin\{document\}\
+\
+%---------------------------------------------------------\
+\\title\{Publication Ready LaTeX Tables in Stata \\\\\
+Using TexResults2 \\\\\
+\\large Cornell Center for Social Sciences Workshop\}\
+\\author\{Gabrielle Sorresso\}\
+\\date\{March 4th 2024\}\
+\\maketitle \
+%---------------------------------------------------------\
+\\section*\{Example Tables\}\
+\
+%load text file in to latex \
+\\input\{table1.txt\}\
+\\input\{table2.txt\}\
+\
+%Create Table \
+\\begin\{table\}[h!] \
+\\begin\{center\}\
+\\caption\{A Table of Regressions about Cars\} %Table Title\
+\\vspace\{0.5cm\} %add some space between title and table starting \
+\\begin\{tabular\}\{lcc\} %Start table environment - lcc means there are three columns, text in the the first is left side oriented and text in thethe second two are centered\
+\\toprule %add a line at the top \
+& \\textbf\{(1)\} & \\textbf\{(2)\}  \\\\ %here we are setting up column numbers\
+& \\textbf\{OLS Model\} & \\textbf\{Logit Model\}  \\\\  %here we are setting up column titles\
+& Price  & Foreign  \\\\  %and listing our dependent variables \
+\\midrule  %add a line before results \
+MPG & \\mpgcoefa & \\mpgcoefb \\\\ % MPG coefficients using our saved macros \
+    & (\\mpgpvaluea)   & (\\mpgpvalueb)   \\\\ % MPG pvalue \
+Weight & \\weightcoefa & \\weightcoefb \\\\  % Weight coefficients\
+       & (\\weightpvaluea)   & (\\weightpvalueb)    \\\\ % Weight pvalue \
+\\midrule %add a line before observations \
+Observations & \\obsa & \\obsb \\\\ \
+\\bottomrule %add a line at the bottom \
+\\end\{tabular\}\
+\\end\{center\}\
+\\end\{table\}\
+\
+\
+%Some Text about our Tables \
+Table 1 shows the results for two different regressions about cars. The coefficient for MPG in column one shows that a one unit increase in weight increases price by \\weightcoefa\\ dollars, holding MPG constant. In contrast, a one unit increase in MPG decreases price by \\mpgcoefa\\ dollars, holding weight constant. \
+\
+%%Table 2 - Summary Statistics \
+\\begin\{table\}[htbp]\
+  \\centering\
+  \\caption\{Summary Statistics\}\
+    \\begin\{tabular\}\{lccc\}\
+    \\toprule\
+    & Mean  & Min   & Max  \\\\\
+    \\midrule\
+    Price & \\pricemean & \\pricemin & \\pricemax \\\\\
+    Foreign & \\foreignmean & \\foreignmin & \\foreignmax \\\\\
+    Weight & \\weightmean & \\weightmin & \\weightmax \\\\\
+    MPG   & \\mpgmean & \\mpgmin & \\mpgmax \\\\\
+    \\bottomrule\
+    \\end\{tabular\}%\
+\\end\{table\}%\
+\
+\\end\{document\}\
+\
+}
